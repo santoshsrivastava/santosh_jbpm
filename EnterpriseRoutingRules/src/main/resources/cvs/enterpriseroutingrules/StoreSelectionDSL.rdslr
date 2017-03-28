@@ -1,0 +1,12 @@
+package cvs.enterpriseroutingrules;
+
+import java.lang.Number;
+
+rule "StoreSelectionDSL"
+	dialect "mvel"
+	ruleflow-group "StoreSelection"
+	when
+		There are more than 1 eligible stores
+	then
+		Select the store which has the best capacity score
+end

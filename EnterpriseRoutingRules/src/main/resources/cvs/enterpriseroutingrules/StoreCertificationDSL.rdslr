@@ -1,0 +1,15 @@
+package cvs.enterpriseroutingrules;
+
+import java.lang.Number;
+import com.cvs.model.Drug;
+import com.cvs.model.Prescription;
+import com.cvs.model.StoreInfo;
+
+rule "StoreCertificationDSL"
+	dialect "mvel"
+	ruleflow-group "StoreCertification"
+	when
+		There is a Prescription with Drug Name "Tylenol"
+	then
+		Store should have "Pain Medication" Certification
+end

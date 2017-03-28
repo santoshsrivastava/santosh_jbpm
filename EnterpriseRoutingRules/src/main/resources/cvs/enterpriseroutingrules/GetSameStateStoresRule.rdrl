@@ -1,0 +1,19 @@
+package cvs.enterpriseroutingrules;
+
+import java.lang.Number;
+import com.cvs.model.Drug;
+import com.cvs.model.Prescription;
+import com.cvs.model.StoreInfo;
+
+rule "GetSameStateStoreInfoRule"
+	dialect "mvel"
+	ruleflow-group "Mail"
+	lock-on-active true
+	no-loop true
+	salience 50
+	when
+		prescription : Prescription( prescriberState : prescriberState == "NY" )
+		store : StoreInfo( )
+	then
+		store.setStateCode( prescriberState );
+end

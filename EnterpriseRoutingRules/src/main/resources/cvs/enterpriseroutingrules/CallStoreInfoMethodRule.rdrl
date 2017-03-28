@@ -1,0 +1,13 @@
+package cvs.enterpriseroutingrules;
+
+import java.lang.Number;
+import com.cvs.model.StoreInfo;
+
+rule "CallStoreInfoMethodRule"
+	dialect "mvel"
+	salience 30
+	when
+		store : StoreInfo( )
+	then
+		store.GET_ELIGIBLE_STORES(  );
+end

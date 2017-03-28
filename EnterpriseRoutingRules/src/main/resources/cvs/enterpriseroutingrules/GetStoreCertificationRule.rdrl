@@ -1,0 +1,20 @@
+package cvs.enterpriseroutingrules;
+
+import java.lang.Number;
+import com.cvs.model.Prescription;
+import com.cvs.model.Drug;
+import com.cvs.model.StoreInfo;
+
+rule "GetStoreCertificationRule"
+	dialect "mvel"
+	ruleflow-group "Mail"
+	lock-on-active true
+	no-loop true
+	salience 40
+	when
+		prescription : Prescription( )
+		(drug : Drug( drugName == "Tylenol" ) from prescription.drug)
+		store : StoreInfo( )
+	then
+		store.setCert( "pain_med" );
+end

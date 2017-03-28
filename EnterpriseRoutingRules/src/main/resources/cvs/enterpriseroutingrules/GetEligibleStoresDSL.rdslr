@@ -1,0 +1,12 @@
+package cvs.enterpriseroutingrules;
+
+import java.lang.Number;
+
+rule "GetEligibleStoresDSL"
+	dialect "mvel"
+	ruleflow-group "StoreSelection"
+	when
+		There is a criteria to match
+	then
+		Get all eligible stores matching the criteria
+end

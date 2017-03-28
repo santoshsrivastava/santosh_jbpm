@@ -1,0 +1,15 @@
+package cvs.enterpriseroutingrules;
+
+import java.lang.Number;
+import com.cvs.model.StoreInfo;
+
+rule "SelectLeastWorkloadStoreRule"
+	dialect "mvel"
+	no-loop true
+	lock-on-active true
+	salience 20
+	when
+		store : StoreInfo( pharmacyList != null )
+	then
+		store.SELECT_DESTINATION_STORE(  );
+end

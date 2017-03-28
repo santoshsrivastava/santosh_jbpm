@@ -1,0 +1,15 @@
+package cvs.enterpriseroutingrules;
+
+import java.lang.Number;
+import com.cvs.model.Prescription;
+import com.cvs.model.StoreInfo;
+
+rule "SameStateStoreRuleDSL"
+	dialect "mvel"
+	ruleflow-group "SameStore"
+	no-loop true
+	when
+		There is a Prescription with Prescriber State "NY"
+	then
+		Store should be in the same state as the Presciber State
+end

@@ -1,0 +1,9 @@
+package cvs.enterpriseroutingrules;
+
+import java.lang.Number;
+
+rule "SampleRule"
+	dialect "mvel"
+	when
+	then
+end
